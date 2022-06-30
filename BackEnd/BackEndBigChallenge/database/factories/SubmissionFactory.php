@@ -43,7 +43,7 @@ class SubmissionFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'state' => Submission::STATUS_READY,
+                'state' => Submission::STATUS_DONE,
                 'doctor_id' => User::factory()->doctor(),
                 'prescriptions' => $this->faker->paragraph,
             ];

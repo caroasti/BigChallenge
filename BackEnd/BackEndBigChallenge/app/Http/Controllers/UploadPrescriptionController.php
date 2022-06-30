@@ -24,7 +24,7 @@ class UploadPrescriptionController
 
         // Now I have to update the submission
         $submission->prescriptions = $uuid;
-        $submission->state = Submission::STATUS_READY;
+        $submission->state = Submission::STATUS_DONE;
         $submission->save();
 
         event(new UploadPrescription($submission));

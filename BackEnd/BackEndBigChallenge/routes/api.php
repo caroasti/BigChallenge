@@ -13,6 +13,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResendVerificationEmailController;
 use App\Http\Controllers\TakeSubmissionController;
+use App\Http\Controllers\DoneSubmissionController;
 use App\Http\Controllers\UpdateDoctorInformationController;
 use App\Http\Controllers\UpdatePatientInformationController;
 use App\Http\Controllers\UpdateSymptomsController;
@@ -57,6 +58,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::middleware(['role:doctor'])->group(function () {
         Route::post('/updateDoctorInformation', UpdateDoctorInformationController::class);
         Route::post('/submission/{submission}/take', TakeSubmissionController::class);
+        Route::post('/submission/{submission}/done', DoneSubmissionController::class);
         Route::post('/submission/{submission}/prescription', UploadPrescriptionController::class); // dont know
         Route::delete('/submission/{submission}/prescription', DeletePrescriptionController::class);
     });

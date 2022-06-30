@@ -30,7 +30,7 @@ class DeletePrescriptionTest extends TestCase
         $submission = Submission::factory()->inProgress()->create();
         // change state to ready and put prescription
         $submission->prescriptions = $file;
-        $submission->state = Submission::STATUS_READY;
+        $submission->state = Submission::STATUS_DONE;
         $submission->save();
 
         Sanctum::actingAs($submission->doctor);
@@ -51,7 +51,7 @@ class DeletePrescriptionTest extends TestCase
         );
         $submission = Submission::factory()->inProgress()->create();
         $submission->prescriptions = $file;
-        $submission->state = Submission::STATUS_READY;
+        $submission->state = Submission::STATUS_DONE;
         $submission->save();
 
         Sanctum::actingAs($userDoctor);
@@ -71,7 +71,7 @@ class DeletePrescriptionTest extends TestCase
         );
         $submission = Submission::factory()->inProgress()->create();
         $submission->prescriptions = $file;
-        $submission->state = Submission::STATUS_READY;
+        $submission->state = Submission::STATUS_DONE;
         $submission->save();
 
         $response = $this->deleteJson("/api/submission/{$submission->id}/prescription");

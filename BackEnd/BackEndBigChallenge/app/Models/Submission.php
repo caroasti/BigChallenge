@@ -16,7 +16,7 @@ class Submission extends Model
 
     const STATUS_PENDING = 'pending';
     const STATUS_IN_PROGRESS = 'inProgress';
-    const STATUS_READY = 'ready';
+    const STATUS_DONE = 'done';
 
     public function patient(): BelongsTo
     {

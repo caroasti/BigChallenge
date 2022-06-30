@@ -20,7 +20,7 @@ class RegisterTest extends TestCase
         Notification::fake();
         $response = $this->postJson('/api/register', [
             'name' => 'pablito',
-            'email' => 'pablitopaloutdm@gmail.com',
+            'email' => 'caroasti@hotmail.com',
             'password' => 'password',
             'password_confirmation' => 'password',
             'role' => 'patient',
@@ -34,7 +34,7 @@ class RegisterTest extends TestCase
             'speciality' => null,
         ]);
         $response->assertSuccessful();
-        $this->assertDatabaseHas('users', ['email' => 'pablitopaloutdm@gmail.com']);
+        $this->assertDatabaseHas('users', ['email' => 'caroasti@hotmail.com']);
         $this->assertDatabaseHas('patient_information', ['height' => '170', 'weight' => '74']);
         $this->assertDatabaseMissing('doctor_information', []);
         Notification::assertSentTo([User::first()], VerifyEmail::class);
@@ -50,7 +50,7 @@ class RegisterTest extends TestCase
         Notification::fake();
         $response = $this->postJson('/api/register', [
             'name' => 'pablito',
-            'email' => 'pablitopaloutdm@gmail.com',
+            'email' => 'caroasti@hotmail.com',
             'password' => 'password',
             'password_confirmation' => 'password',
             'role' => 'doctor',
@@ -64,7 +64,7 @@ class RegisterTest extends TestCase
             'speciality' => 'Cardiology',
         ]);
         $response->assertSuccessful();
-        $this->assertDatabaseHas('users', ['email' => 'pablitopaloutdm@gmail.com']);
+        $this->assertDatabaseHas('users', ['email' => 'caroasti@hotmail.com']);
         $this->assertDatabaseHas('patient_information', ['height' => '170', 'weight' => '74']);
         $this->assertDatabaseHas('doctor_information', ['grade' => 2, 'speciality' => 'Cardiology']);
         Notification::assertSentTo([User::first()], VerifyEmail::class);
@@ -90,7 +90,7 @@ class RegisterTest extends TestCase
         return [
             ['validDoctor' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -105,7 +105,7 @@ class RegisterTest extends TestCase
             ]],
             ['validPatient' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'patient',
@@ -144,7 +144,7 @@ class RegisterTest extends TestCase
         return [
 
             ['noName' => [
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -159,7 +159,7 @@ class RegisterTest extends TestCase
             ]],
             ['noPass' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
                 'gender' => 'male',
@@ -173,7 +173,7 @@ class RegisterTest extends TestCase
             ]],
             ['noPassConfirmation' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'role' => 'doctor',
                 'gender' => 'male',
@@ -187,7 +187,7 @@ class RegisterTest extends TestCase
             ]],
             ['wrongPassConfirmation' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'wronggggpassword',
                 'role' => 'doctor',
@@ -202,7 +202,7 @@ class RegisterTest extends TestCase
             ]],
             ['shortPass' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'short',
                 'password_confirmation' => 'short',
                 'role' => 'doctor',
@@ -217,7 +217,7 @@ class RegisterTest extends TestCase
             ]],
             ['noRole' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'gender' => 'male',
@@ -231,7 +231,7 @@ class RegisterTest extends TestCase
             ]],
             ['noGender' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -245,7 +245,7 @@ class RegisterTest extends TestCase
             ]],
             ['noHeight' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -259,7 +259,7 @@ class RegisterTest extends TestCase
             ]],
             ['noWeight' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -273,7 +273,7 @@ class RegisterTest extends TestCase
             ]],
             ['noBirth' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -316,7 +316,7 @@ class RegisterTest extends TestCase
             ]],
             ['noGrade' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -330,7 +330,7 @@ class RegisterTest extends TestCase
             ]],
             ['gradeGreaterThan5' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',
@@ -345,7 +345,7 @@ class RegisterTest extends TestCase
             ]],
             ['noSpeciality' => [
                 'name' => 'pablito',
-                'email' => 'pablitopaloutdm@gmail.com',
+                'email' => 'caroasti@hotmail.com',
                 'password' => 'password',
                 'password_confirmation' => 'password',
                 'role' => 'doctor',

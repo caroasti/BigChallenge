@@ -53,9 +53,6 @@ class LoginTest extends TestCase
     {
         User::factory()->create(['email'=>'pablo@pablo.com', 'password'=> 'passwordPablo']);
         $response = $this->postJson('/api/login', $user);
-        // DOUBT
-        // I found on (https://laracasts.com/discuss/channels/laravel/l52-change-laravel-http-status-code-for-validation) that the failed validation
-        // status was 422. Is this test OK or do i have to do sth more?
         $response->assertStatus(422);
     }
 

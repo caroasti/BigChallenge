@@ -14,6 +14,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
+            'role' => $this->getRoleNames()[0],
             'patientInformation' => new PatientInformationResource($this->whenLoaded('patientInformation')),
             'doctorInformation' => new DoctorInformationResource($this->whenLoaded('doctorInformation')),
         ];
